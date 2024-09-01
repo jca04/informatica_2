@@ -1,16 +1,37 @@
 #include <iostream>
+#include <limits>
+#include <sstream>
 #include "ejercicios.h"
 
 using namespace std;
 
 void ejercicio25() {
-    int num;
-    cout << "Ingrese un numero: ";
-    cin >> num;
+    double num;
 
-    string numStr = to_string(num);
+    while(true) {
+        cout << "Ingrese un numero: ";
+        cin >> num;
 
-    int numSize = numStr.size();
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Tipo de dato invalido. Ingrese un numero." << endl;
+            continue;
+        } else {
+            break;
+        }
+    }
 
-    cout << num << " tiene " << numSize << " digitos." << endl;
+    ostringstream oss; // crea un flujo de salida a cadena
+    oss << num;
+    string numStr = oss.str();
+
+    int cont = 0;
+    for(char c : numStr) {
+        if (isdigit(c)) {
+            cont++;
+        }
+    }
+
+    cout << num << " tiene " << cont << " digitos." << endl;
 }

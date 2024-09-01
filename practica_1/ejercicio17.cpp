@@ -1,17 +1,23 @@
 #include <iostream>
 #include "ejercicios.h"
+#include <limits>
 
 using namespace std;
 
 void ejercicio17() {
 
     bool finish = false;
-    int largestNum;
+    double largestNum;
 
     while (!finish) {
-        int num;
+        double num;
         cout << "Ingrese un numero o ingrese 0 para salir: " << endl;
-        cin >> num;
+        if (!(cin >> num)) {
+            cout << "Tipo de dato invalido. Ingrese un numero." << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
 
         if (num > largestNum) {
             largestNum = num;

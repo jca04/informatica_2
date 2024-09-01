@@ -1,19 +1,25 @@
 #include <iostream>
 #include "ejercicios.h"
+#include <limits>
 
 using namespace std;
 
 void ejercicio16() {
 
     bool finish = false;
-    int suma = 0;
+    double suma = 0;
     double promedio = 0;
     int cont = 0;
 
     while (!finish) {
-        int num;
+        double num;
         cout << "Ingrese un numero o ingrese 0 para salir: " << endl;
-        cin >> num;
+        if (!(cin >> num)) {
+            cout << "Tipo de dato invalido. Ingrese un numero: " << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
 
         if (num != 0) {
             suma += num;
@@ -23,8 +29,11 @@ void ejercicio16() {
         if (num == 0) finish = true;
     }
 
-    promedio = suma / cont;
-
-    cout << "El promedio es: " << promedio << endl;
+    if (cont > 0) {
+        promedio = suma / cont;
+        cout << "El promedio es: " << promedio << endl;
+    } else {
+        cout << "No se ingresaron numeros." << endl;
+    }
 
 }

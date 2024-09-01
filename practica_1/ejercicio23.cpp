@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
@@ -22,13 +23,20 @@ int calcMCM(int a, int b) {
 
 void ejercicio23() {
 
-    int a, b;
+    int a = leerNumeroEntero("Ingrese el primer numero: ");
+    int b = leerNumeroEntero("Ingrese el segundo numero: ");
 
-    cout << "Ingrese el primer valor: " << endl;
-    cin >> a;
-
-    cout << "Ingrese el segundo valor: " << endl;
-    cin >> b;
+    while (true) {
+        if (a < 0) {
+            a = leerNumeroEntero("Ingrese un numero positivo para el primer numero: ");
+            continue;
+        } else if (b < 0) {
+            b = leerNumeroEntero("Ingrese un numero positivo para el segundo numero: ");
+            continue;
+        } else {
+            break;
+        }
+    }
 
     int mcm = calcMCM(a, b);
 

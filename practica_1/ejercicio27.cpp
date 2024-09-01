@@ -1,26 +1,37 @@
 #include <iostream>
+#include <limits>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
-void ejercicio27() {
-    double num1, num2;
-    cout << "Ingrese el primer numero: " << endl;
-    cin >> num1;
-
+char validarOperacion() {
     char operacion;
-    cout << "Ingrese una operacion (suma (+), resta(-), multiplicacion(*) y division(/)): " << endl;
-    cin >> operacion;
 
-    cout << "Ingrese el segundo numero: " << endl;
-    cin >> num2;
+    while (true) {
+        cout << "Ingrese una operacion (suma (+), resta (-), multiplicacion (*), division (/)): ";
+        cin >> operacion;
 
-    if (operacion != '+' && operacion != '-' && operacion != '*' && operacion != '/') {
-        cout << "Operacion no valida" << endl;
-        return;
+        if (operacion == '+' || operacion == '-' || operacion == '*' || operacion == '/') {
+            break;
+        } else {
+            cout << "Ingrese una operacion valida." << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descartar la entrada inválida
+        }
     }
 
-    int resultado;
+    return operacion;
+}
+
+void ejercicio27() {
+    double num1 = validarDoubleInput("Ingrese el primer numero: ");
+
+    char operacion = validarOperacion();
+
+    double num2 = validarDoubleInput("Ingrese el segundo numero: ");
+
+    double resultado;
 
     if (operacion == '+') {
         resultado = num1 + num2;

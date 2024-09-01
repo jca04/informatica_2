@@ -1,17 +1,26 @@
 #include <iostream>
 #include <problemas.h>
+#include "funciones.h"
 
 using namespace std;
 
 void problema5() {
 
-    int num;
-    cout << "Ingrese el numero del patron: ";
-    cin >> num;
+    int num = leerNumeroEntero("Ingrese el numero del patron (tiene que ser impar): ");
 
-    if (num % 2 == 0) {
-        cout << "El numero tiene que ser impar" << endl;
-        return;
+    while(true) {
+
+        if (num < 0) {
+            num = leerNumeroEntero("Ingrese un numero impar positivo: ");
+            continue;
+        }
+
+        if (num % 2 == 0) {
+            cout << "El numero tiene que ser impar" << endl;
+            num = leerNumeroEntero("Ingrese el numero del patron (tiene que ser impar): ");
+        } else {
+            break;
+        }
     }
 
     // parte superior

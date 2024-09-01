@@ -1,17 +1,20 @@
 #include <iostream>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
 void ejercicio24() {
 
-    int num;
-    cout << "Ingrese un numero: ";
-    cin >> num;
+    int num = leerNumeroEntero("Ingrese un numero: ");
 
-    if (num <= 1) {
-        cout << "El numero debe ser mayor que 1." << endl;
-        return;
+    while(true) {
+        if (num <= 1) {
+            num = leerNumeroEntero("Ingrese un numero mayor a 1: ");
+            continue;
+        } else {
+            break;
+        }
     }
 
     for(int i = 0; i < num; i++) {

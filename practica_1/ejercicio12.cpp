@@ -1,30 +1,40 @@
 #include <iostream>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
 double expNum(double num, int exp) {
 
-    int res = 1;
-    int aux = 1;
-    int cont = 1;
-    while (cont <= exp) {
-        aux = num;
-        res *= aux;
-        cont++;
+    if (exp < 0) {
+        cout << "Exponente negativo no permitido. " << endl;
+        return -1;
+    }
+
+    double res = 1;
+
+    for (int i = 0; i < exp; i++) {
+        res *= num;
     }
 
     return res;
-
 }
 
 void ejercicio12() {
-    int num;
+    int num = leerNumeroEntero("Ingrese un numero: ");
 
-    cout << "Ingrese un numero: ";
-    cin >> num;
+    while(true) {
+        if (num <= 0) {
+            num = leerNumeroEntero("El numero debe ser positivo y mayor que cero: ");
+        } else {
+            break;
+        }
+    }
 
     for (int i = 1; i <= 5; i++) {
-        cout << num << "^" << i << "=" << expNum(num, i) << endl;
+        double result = expNum(num, i);
+        if (result != -1) {
+            cout << num << "^" << i << "=" << expNum(num, i) << endl;
+        }
     }
 }

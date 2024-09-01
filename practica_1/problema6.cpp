@@ -1,5 +1,6 @@
 #include <iostream>
 #include <problemas.h>
+#include "funciones.h"
 
 using namespace std;
 
@@ -22,9 +23,15 @@ double calcFactorial (int num) {
 
 void problema6() {
 
-    int num;
-    cout << "Ingrese un numero: ";
-    cin >> num;
+    int num = leerNumeroEntero("Ingrese un numero entero: ");
+
+    while (true) {
+        if (num < 0) {
+            num = leerNumeroEntero("Ingrese un numero positivo: ");
+        } else {
+            break;
+        }
+    }
 
     double e = 0;
     int cont = 0;

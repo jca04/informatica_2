@@ -1,17 +1,21 @@
 #include <iostream>
+#include <limits>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
 void ejercicio28(){
 
-    int num;
-    cout << "Ingrese el numero de elementos: ";
-    cin >> num;
+    int num = leerNumeroEntero("Ingrese el numero de elementos: ");
 
-    if (num <= 0) {
-        cout << "Ingrese un numero mayor a 0" << endl;
-        return;
+    while(true) {
+        if (num <= 0) {
+            cout << "Ingrese un numero mayor a 0" << endl;
+            num = leerNumeroEntero("Ingrese el numero de elementos: ");
+        } else {
+            break;
+        }
     }
 
     double suma = 0.0;

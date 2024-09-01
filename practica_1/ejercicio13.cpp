@@ -1,13 +1,20 @@
 #include <iostream>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
 void ejercicio13() {
 
-    int n;
-    cout << "Ingrese un numero: " << endl;
-    cin >> n;
+    int n = leerNumeroEntero("Ingrese un numero: ");
+
+    while(true) {
+        if (n <= 0) {
+            n = leerNumeroEntero("Ingrese un numero positivo para encontrar sus divisores: ");
+        } else {
+            break;
+        }
+    }
 
     cout << "Los divisores de n son: " << endl;
 

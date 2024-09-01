@@ -1,17 +1,19 @@
 #include <iostream>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
 void ejercicio10() {
-    int num;
 
-    cout << "Ingrese un numero: " << endl;
-    cin >> num;
+    int num = leerNumeroEntero("Ingrese un numero: ");
 
-    if (num <= 0) {
-        cout << "El numero debe ser mayor que 0." << endl;
-        return;
+    while (true) {
+        if (num <= 0) {
+            num = leerNumeroEntero("Ingrese un numero mayor que 0: ");
+        } else {
+            break;
+        }
     }
 
     cout << "Multiplos de " << num << " menores que 100" << endl;

@@ -1,18 +1,20 @@
 #include <iostream>
 #include <cmath>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
 
 void ejercicio18() {
-    int num;
-    cout << "Ingrese un numero: ";
-    cin >> num;
+    int num = leerNumeroEntero("Ingrese un numero: ");
 
-    if (num < 0) {
-        cout << "Ingrese un numero positivo" << endl;
-        return;
+    while(true) {
+        if (num < 0) {
+            num = leerNumeroEntero("Ingrese un numero positivo");
+        } else {
+            break;
+        }
     }
 
     int sqrtRes = static_cast<int>(sqrt(num));

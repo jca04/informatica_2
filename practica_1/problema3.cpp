@@ -1,17 +1,14 @@
 #include <iostream>
 #include <problemas.h>
+#include "funciones.h"
 
 using namespace std;
 
 void problema3() {
 
-    int mes;
-    cout << "Ingrese un mes: ";
-    cin >> mes;
+    int mes = leerNumeroEntero("Ingrese un mes: ");
 
-    int dia;
-    cout << "Ingrese un dia: ";
-    cin >> dia;
+    int dia = leerNumeroEntero("Ingrese un dia: ");
 
     if (mes > 12) {
         cout << mes << " es un mes invalido." << endl;

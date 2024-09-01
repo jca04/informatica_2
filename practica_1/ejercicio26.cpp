@@ -1,5 +1,7 @@
 #include <iostream>
+#include <limits>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
@@ -9,16 +11,9 @@ bool isTriangle(double a, double b, double c) {
 
 void ejercicio26() {
 
-    double a, b, c;
-
-    cout << "Ingrese la primera longitud: " << endl;
-    cin >> a;
-
-    cout << "Ingrese la segunda longitud: " << endl;
-    cin >> b;
-
-    cout << "Ingrese la tercera longitud: " << endl;
-    cin >> c;
+    double a = validarDoubleInput("Ingrese la primera longitud: ");
+    double b = validarDoubleInput("Ingrese la segunda longitud: ");
+    double c = validarDoubleInput("Ingrese la tercera longitud: ");
 
     bool verify = isTriangle(a, b, c);
 

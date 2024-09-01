@@ -34,16 +34,27 @@ SOURCES += \
         ejercicio7.cpp \
         ejercicio8.cpp \
         ejercicio9.cpp \
+        funciones.cpp \
         main.cpp \
         problema1.cpp \
+        problema10.cpp \
+        problema11.cpp \
+        problema12.cpp \
+        problema13.cpp \
+        problema14.cpp \
+        problema15.cpp \
+        problema16.cpp \
+        problema17.cpp \
         problema2.cpp \
         problema3.cpp \
         problema4.cpp \
         problema5.cpp \
         problema6.cpp \
         problema7.cpp \
-        problema8.cpp
+        problema8.cpp \
+        problema9.cpp
 
 HEADERS += \
     ejercicios.h \
+    funciones.h \
     problemas.h

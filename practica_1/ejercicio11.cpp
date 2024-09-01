@@ -1,14 +1,20 @@
 #include <iostream>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
 
 void ejercicio11() {
-    int num;
+    int num = leerNumeroEntero("Ingrese un numero: ");
 
-    cout << "Ingrese un numero: " << endl;
-    cin >> num;
+    while (true) {
+        if (num <= 0) {
+            num = leerNumeroEntero("Ingrese un numero positivo mayor que cero: ");
+        } else {
+            break;
+        }
+    }
 
     for (int i = 1; i <= 10; i++) {
         cout << i << "x" << num << "=" << num * i << endl;

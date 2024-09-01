@@ -1,24 +1,41 @@
 #include <iostream>
 #include <cmath>
+#include <string>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
+bool esPalindromo(const string &numero) {
+    string numeroSinPunto = "";
+    for (char c : numero) {
+        if (c != '.') {
+            numeroSinPunto += c;
+        }
+    }
+
+    int n = numeroSinPunto.size();
+    string numeroRev = "";
+    for (int i = n - 1; i >= 0; i--) {
+        numeroRev += numeroSinPunto[i];
+    }
+
+    if (numeroSinPunto == numeroRev) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
 
 void ejercicio20() {
 
-    int num;
-    cout << "Ingrese un numero: ";
-    cin >> num;
+    cout << "Ingrese un numero: " << endl;
+    string num;
 
-    string pal = to_string(num);
-    string rev = "";
+    getline(cin, num);
 
-    for (int i = pal.length() - 1; i >= 0; i--) {
-        rev += pal[i];
-    }
-
-    if (pal == rev) {
+    if (esPalindromo(num)) {
         cout << num << " es un numero palindromo" << endl;
     } else {
         cout << num << " NO es un numero palindromo" << endl;

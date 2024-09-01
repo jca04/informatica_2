@@ -1,13 +1,23 @@
 #include <iostream>
 #include "ejercicios.h"
+#include "funciones.h"
 
 using namespace std;
 
 void ejercicio8() {
-    int num;
+    int num = leerNumeroEntero("Ingrese un numero: ");
 
-    cout << "Ingresa un numero: " << endl;
-    cin >> num;
+    while (true) {
+        if (num > 32) {
+            num = leerNumeroEntero("Numero muy grande. Ingrese un numero menor a 32: ");
+            continue;
+        } else if (num < 0) {
+            num = leerNumeroEntero("Ingrese un numero positivo: ");
+            continue;
+        } else {
+            break;
+        }
+    }
 
     int fact = 1;
 
