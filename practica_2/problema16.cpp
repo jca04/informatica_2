@@ -8,19 +8,31 @@ using namespace std;
 int countPaths(int **matrix, int rows, int cols) {
 
     // Inicializar la celda de destino con 1 (un solo camino para llegar a si misma)
+    // [0 , 0, 0]
+    // [0 , 0, 0]
+    // [0 , 0, 1]
     matrix[rows - 1][cols - 1] = 1;
 
     // Llenar la ultima fila (solo se puede mover hacia la derecha)
+    // [0, 0, 0]
+    // [0, 0 ,0]
+    // [1, 1, 1]
     for (int j = cols - 2; j >= 0; j--) {
         matrix[rows - 1][j] = 1; // Solo hay un camino hacia la derecha
     }
 
-    // Llenar la ultima columna (solo se pude mover hacia abajo
+    // Llenar la ultima columna (solo se pude mover hacia abajo)
+    // [0, 0, 1]
+    // [0, 0, 1]
+    // [1, 1, 1]
     for (int i = rows - 2; i >= 0; i--) {
         matrix[i][cols - 1] = 1; // Solo hay un camino hacia abajo
     }
 
     // Llenar el resto de la matriz
+    // [0, 0, 1]
+    // [3, 2, 1]
+    // [1, 1, 1]
     for (int i = rows - 2; i >= 0; i--) {
         for (int j = cols - 2; j >= 0; j--) {
             matrix[i][j] = matrix[i + 1][j] + matrix[i][j + 1]; // Sumar caminos de abajo y derecha
