@@ -17,8 +17,8 @@ int main()
     //problema10();
     //problema12();
     //problema14();
-    //problema16();
-    problema18();
+    problema16();
+    //problema18();
     return 0;
 }
 

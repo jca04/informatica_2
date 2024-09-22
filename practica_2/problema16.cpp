@@ -4,45 +4,58 @@
 
 using namespace std;
 
-unsigned long long factorial(int num) {
-    unsigned long long result = 1;
-    for(int i = 1; i <= num; i++) {
-        result *= i;
+
+int countPaths(int **matrix, int rows, int cols) {
+
+    // Inicializar la celda de destino con 1 (un solo camino para llegar a si misma)
+    matrix[rows - 1][cols - 1] = 1;
+
+    // Llenar la ultima fila (solo se puede mover hacia la derecha)
+    for (int j = cols - 2; j >= 0; j--) {
+        matrix[rows - 1][j] = 1; // Solo hay un camino hacia la derecha
     }
 
-    return result;
-}
+    // Llenar la ultima columna (solo se pude mover hacia abajo
+    for (int i = rows - 2; i >= 0; i--) {
+        matrix[i][cols - 1] = 1; // Solo hay un camino hacia abajo
+    }
 
-unsigned long long caminos(int n) {
-    return factorial(2 * n) / (factorial(n) * factorial(n));
-}
-
-
-void problema16() {
-
-    /// los caminos posibles es el numero de formas en que se pueden organizar estos movimients. Es una combinación
-    /// C(2n, n) = (2n)!/n!n!
-
-    int n;
-    while (true) {
-        cout << "Ingrese el tamano de la malla (n): ";
-        cin >> n;
-
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Entrada no valida. Por favor ingrese un numero entero." << endl;
-        } else if (n < 0) {
-            cout << "Por favor ingrese un numero entero positivo." << endl;
-        } else {
-            break;
+    // Llenar el resto de la matriz
+    for (int i = rows - 2; i >= 0; i--) {
+        for (int j = cols - 2; j >= 0; j--) {
+            matrix[i][j] = matrix[i + 1][j] + matrix[i][j + 1]; // Sumar caminos de abajo y derecha
         }
     }
 
+    return matrix[0][0]; // El numero de caminos desde la esquina superior izquierda estara en matrix[0][0]
 
-    unsigned long long posiblesCaminos = caminos(n);
+}
 
-    cout << "Para una malla de " << n << "x" << n << " puntos hay " << posiblesCaminos << " caminos." << endl;
+void problema16() {
 
+    unsigned int malla;
+
+    cout << "Ingrese el tamano de la malla: ";
+    cin >> malla;
+
+
+    // Crear una matriz de tamaño (malla + 1) x (malla + 1) para incluir los puntos
+    int dimention = malla + 1;
+
+
+    int **matrix = new int*[dimention];
+    for (int i = 0; i < dimention; i++) {
+        matrix[i] = new int[dimention];
+    }
+
+    int possiblePaths = countPaths(matrix, dimention, dimention);
+
+    cout << "Para una malla de " << malla << "x" << malla << " puntos hay " << possiblePaths << " caminos." << endl;
+
+    for (int i = 0; i < dimention; i++) {
+        delete[] matrix[i];
+    }
+
+    delete[] matrix;
 
 }
