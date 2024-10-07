@@ -85,16 +85,15 @@ string firstMethod(const string &binary, int n) {
             currentBlockEncoded = invertEveryThreeBits(currentBlock);
         }
 
-        // Agregar el bloque codificado al resultado
         encoded += currentBlockEncoded;
 
     }
 
-    delete[] subStrArr; // Liberar memoria
-    return encoded; // Retornar la cadena codificada completa
+    delete[] subStrArr;
+    return encoded;
 }
 
-string secondMethod(const string &binary, int n) {
+string secondMethod(const string &binary, int n = 4) {
     string encoded = "";
 
     for (size_t i = 0; i < binary.length(); i += n) {

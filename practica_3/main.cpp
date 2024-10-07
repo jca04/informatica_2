@@ -1,5 +1,7 @@
 #include "utils.h"
 #include "encrypt.h"
+#include "decrypt.h"
+#include "users.h"
 #include <iostream>
 #include <filesystem>
 #include <limits>
@@ -33,13 +35,15 @@ int main()
             break;
         case 2:
             cout << "Decodificando archivo..." << endl;
+            decrypt();
             break;
         case 3:
             cout << "Sistema de usuarios..." << endl;
+            users();
             break;
         case 0:
             cout << "Saliendo del programa..." << endl;
-            return 0; // Salir del programa
+            return 0;
         default:
             cout << "Opcion no valida. Intente nuevamente." << endl;
             break;

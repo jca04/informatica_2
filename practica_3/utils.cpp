@@ -13,7 +13,7 @@ string readFile(const string &fileName) {
 
     try {
 
-        fstream file(fileName, ios::in);
+        fstream file(fileName, ios::in | ios::binary);
         if (!file.is_open()) {
             throw runtime_error("Error: No se pudo abrir el archivo " + fileName);
         }
