@@ -73,7 +73,7 @@ void problema15() {
     cout << "Espiral de " << num << "x" << num << ":" << endl;
     for (int i = 0; i < num; i++) {
         for (int j = 0; j < num; j++) {
-            cout << espiral[i][j] << "\t"; // tab
+            cout << espiral[i][j] << " "; // tab
         }
         cout << endl;
     }

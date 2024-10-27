@@ -58,4 +58,12 @@ void ejercicio3() {
     // *(*(b + 2) + 1) = representa el contenido de b[2][1] = 39
     // b[3][1] = 0x0A20
     // *b++ = b[0][0] (porque se aumenta despues de que se haya utilizado) = 77
+    int array[3][3][3] = [
+        [1, 2, 3],
+        [5, 8, 19],
+        [7, 2 , 0]
+    ]
+
+    *
+
 }

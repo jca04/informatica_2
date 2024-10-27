@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    int opcion; // Inicializa con un valor que no sea válido para entrar en el bucle
+    int opcion;
 
     while (true) {
         cout << "Selecciona una opcion:" << endl;
